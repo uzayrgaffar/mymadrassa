@@ -3,8 +3,6 @@ import { getCourseBySlug, courses } from "@/lib/courses";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-const TYPEFORM_URL = "https://form.typeform.com/to/XXXXXXXX";
-
 export function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
 }
@@ -67,14 +65,12 @@ export default async function CoursePage({
             <div className="bg-white rounded-2xl border border-line p-8">
               <p className="text-3xl font-bold text-ink mb-1">{course.price}</p>
               <p className="text-muted text-sm mb-8">One-to-one · Online · Flexible schedule</p>
-              <a
-                href={TYPEFORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/register/individual?course=${course.slug}`}
                 className="block text-center bg-sidebar text-white font-bold py-4 rounded-2xl text-base hover:opacity-90 transition-opacity mb-3"
               >
                 Enrol now →
-              </a>
+              </Link>
               <Link
                 href="/book-free-call"
                 className="block text-center border border-line text-ink font-semibold py-4 rounded-2xl text-base hover:border-accent hover:text-accent transition-colors"
@@ -179,14 +175,12 @@ export default async function CoursePage({
             Start with a free 30 min diagnostic call — we&apos;ll assess your level and confirm this is the right course for you.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5">
-            <a
-              href={TYPEFORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={`/register/individual?course=${course.slug}`}
               className="bg-accent text-sidebar font-bold px-10 py-4 rounded-2xl text-base hover:opacity-90 transition-opacity"
             >
               Enrol now →
-            </a>
+            </Link>
             <Link
               href="/book-free-call"
               className="text-white/60 font-semibold text-base hover:text-white transition-colors"

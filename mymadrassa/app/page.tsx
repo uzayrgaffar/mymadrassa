@@ -62,6 +62,7 @@ type Path = {
   desc: string;
   items: string[];
   cta: string;
+  href: string;
 };
 
 const paths: Path[] = [
@@ -72,6 +73,7 @@ const paths: Path[] = [
     desc: "Ongoing, private sessions billed by the term. Your teacher builds the pace around you.",
     items: ["Qur'an Mentorship", "Ijaazah", "Qira'aat"],
     cta: "Register your interest",
+    href: "/register/individual",
   },
   {
     icon: "ج",
@@ -80,6 +82,7 @@ const paths: Path[] = [
     desc: "Subscribe for the full recorded course library and watch anytime — or add a live Q&A slot and group revision sessions with a teacher.",
     items: ["Arabic", "al-Jazariyyah", "Tuhfatul Atfaal"],
     cta: "Register your interest",
+    href: "/register/group",
   },
 ];
 
@@ -225,10 +228,13 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <div className="flex items-center justify-between pt-6 border-t border-line mt-auto">
-                  <span className="text-muted text-sm font-medium">Coming soon</span>
-                  <button className="bg-sidebar text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+                  <span className="text-muted text-sm font-medium">Enrolling now</span>
+                  <Link
+                    href={p.href}
+                    className="bg-sidebar text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
+                  >
                     {p.cta}
-                  </button>
+                  </Link>
                 </div>
                 </div>
               </Reveal>

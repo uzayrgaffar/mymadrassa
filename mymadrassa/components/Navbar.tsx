@@ -41,11 +41,11 @@ export default function Navbar() {
           })}
         </div>
         <div className="flex items-center gap-2 sm:gap-4 justify-self-end">
-          <Link href="/login" className="hidden sm:inline text-[15px] font-medium text-muted hover:text-ink transition-colors px-3 py-2">
-            Sign in
+          <Link href="/donate" className="hidden sm:inline text-[15px] font-medium text-muted hover:text-ink transition-colors px-3 py-2">
+            Donate
           </Link>
-          <Link href="/portal" className="bg-sidebar text-white text-[15px] font-bold px-6 py-2.5 rounded-xl hover:opacity-90 transition-opacity shadow-sm hover:shadow-md">
-            Student portal
+          <Link href="/book-free-call" className="bg-sidebar text-white text-[15px] font-bold px-6 py-2.5 rounded-xl hover:opacity-90 transition-opacity shadow-sm hover:shadow-md">
+            Book free call
           </Link>
         </div>
       </div>

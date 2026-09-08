@@ -129,7 +129,7 @@ export default function CoursesPage() {
           <div className="flex items-center gap-8 text-white/50 text-sm">
             <Link href="/resources" className="hover:text-white/70 transition-colors">Resources</Link>
             <Link href="/teachers" className="hover:text-white/70 transition-colors">Scholars</Link>
-            <Link href="/login" className="hover:text-white/70 transition-colors">Sign in</Link>
+            <Link href="/donate" className="hover:text-white/70 transition-colors">Donate</Link>
           </div>
           <p className="text-white/30 text-xs md:text-sm">© 2026 MyMadrassa.</p>
         </div>

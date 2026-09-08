@@ -6,8 +6,8 @@ import FeatureGrid from "@/components/FeatureGrid";
 import StatsBar from "@/components/StatsBar";
 
 const stats = [
-  { value: "3,400+", label: "Students worldwide" },
-  { value: "18", label: "Expert scholars" },
+  { value: "350+", label: "Students worldwide" },
+  { value: "7", label: "Expert scholars" },
   { value: "40+", label: "Courses available" },
   { value: "94%", label: "Completion rate" },
 ];
@@ -55,22 +55,34 @@ const features = [
   },
 ];
 
-const paths = [
+type Path = {
+  icon: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  items: string[];
+  cta: string;
+  href: string;
+};
+
+const paths: Path[] = [
   {
     icon: "ف",
     title: "One-to-One Mentorship",
-    subtitle: "Private · Fardi",
+    subtitle: "Private",
     desc: "Ongoing, private sessions billed by the term. Your teacher builds the pace around you.",
-    items: ["Qur'an Mentorship", "Ijaazah", "Qira'aat", "Arabic"],
+    items: ["Qur'an Mentorship", "Ijaazah", "Qira'aat"],
     cta: "Register your interest",
+    href: "/register/individual",
   },
   {
     icon: "ج",
     title: "Group Courses",
-    subtitle: "Cohort · Jamaa'i",
-    desc: "Live cohorts with fixed start dates, learning alongside other students.",
+    subtitle: "Cohort",
+    desc: "Subscribe for the full recorded course library and watch anytime — or add a live Q&A slot and group revision sessions with a teacher.",
     items: ["Arabic", "al-Jazariyyah", "Tuhfatul Atfaal"],
     cta: "Register your interest",
+    href: "/register/group",
   },
 ];
 
@@ -190,7 +202,7 @@ export default function LandingPage() {
             <p className="eyebrow-line text-accent text-sm font-bold uppercase tracking-widest mb-6">Study formats</p>
             <h2 className="text-5xl md:text-6xl font-bold text-ink leading-tight mb-8">Two ways to study with us.</h2>
             <p className="text-muted text-lg leading-relaxed max-w-2xl">
-              Go private for a pace built entirely around you, or join a live cohort with other students. Nothing here is pre-recorded — every seat is a real class.
+              Go private for a pace built entirely around you, or join a group course — study the recordings on your own schedule, and add live Q&amp;A and revision sessions whenever you want a teacher alongside you.
             </p>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -216,10 +228,13 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <div className="flex items-center justify-between pt-6 border-t border-line mt-auto">
-                  <span className="text-muted text-sm font-medium">Coming soon</span>
-                  <button className="bg-sidebar text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+                  <span className="text-muted text-sm font-medium">Enrolling now</span>
+                  <Link
+                    href={p.href}
+                    className="bg-sidebar text-white font-bold text-sm px-6 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
+                  >
                     {p.cta}
-                  </button>
+                  </Link>
                 </div>
                 </div>
               </Reveal>
@@ -233,7 +248,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <Reveal className="mb-16 md:mb-24">
             <p className="eyebrow-line text-accent text-sm font-bold uppercase tracking-widest mb-6">Testimonials</p>
-            <h2 className="text-5xl md:text-6xl font-bold text-ink leading-tight">Trusted by thousands of students.</h2>
+            <h2 className="text-5xl md:text-6xl font-bold text-ink leading-tight">Trusted by hundreds of students.</h2>
           </Reveal>
           <div className="space-y-8">
             {testimonials.map((t, i) => (
@@ -276,13 +291,9 @@ export default function LandingPage() {
       {/* Donate */}
       <section className="bg-sidebar py-24 md:py-32 border-b border-white/5">
         <Reveal className="max-w-4xl mx-auto px-6 md:px-8 text-center">
-          <p
-            className="text-accent font-semibold leading-tight tracking-tight mb-12 text-5xl md:text-6xl"
-            dir="rtl"
-            style={{ fontFamily: "var(--font-arabic), 'Scheherazade New', serif" }}
-          >
-            مَدْرَسَتِي الْقُرْآنِيَّة
-          </p>
+          <div className="flex justify-center mb-12">
+            <Logo size={64} tone="dark" variant="lockup" href={null} />
+          </div>
           <p className="eyebrow-line text-accent text-sm font-bold uppercase tracking-widest mb-6">Support our institute</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Invest in a lasting sadaqah.
@@ -297,7 +308,7 @@ export default function LandingPage() {
             >
               Donate now →
             </Link>
-            <Link href="/donate#monthly" className="text-white/70 font-semibold text-base hover:text-white transition-colors">
+            <Link href="/donate?give=monthly" className="text-white/70 font-semibold text-base hover:text-white transition-colors">
               Give monthly →
             </Link>
           </div>
